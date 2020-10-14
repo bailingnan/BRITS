@@ -111,7 +111,7 @@ for i in range(nb_batch):
     print('On batch {}'.format(i))
     x = np.concatenate(X[i * batch_size: (i + 1) * batch_size])
     y = np.concatenate(Y[i * batch_size: (i + 1) * batch_size])
-    x_mice = fancyimpute.MICE(n_imputations=100, n_pmm_neighbors=20, verbose=False).fit_transform(x)
+    x_mice = fancyimpute.InterativeImputer(verbose=False).fit_transform(x)
 
     X_mice.append(x_mice)
 
